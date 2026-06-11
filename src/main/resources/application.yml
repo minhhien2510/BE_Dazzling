@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dazzling?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: dazzling
+    password: dazzling123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
+jwt:
+  secret: CHANGE_ME_SUPER_SECRET_KEY_1234567890
+  expiration-ms: 3600000
+  refresh-expiration-ms: 604800000
+
+minio:
+  endpoint: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket: dazzling-gallery
+  presigned:
+    expiry-seconds: 30
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
