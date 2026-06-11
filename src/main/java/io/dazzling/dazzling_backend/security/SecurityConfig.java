@@ -72,7 +72,8 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:3000",
                 "http://localhost:8080",
-                "https://www.dazzling.io.vn"
+                "https://www.dazzling.io.vn",
+                "https://bedazzling-production.up.railway.app",
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
