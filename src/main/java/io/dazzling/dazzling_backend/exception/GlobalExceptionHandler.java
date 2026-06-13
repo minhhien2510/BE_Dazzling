@@ -96,6 +96,23 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(body);
     }
 
+    @ExceptionHandler(FeedbackNotFoundException.class)
+    public ResponseEntity<ApiErrorResponse> handleFeedbackNotFound(
+            FeedbackNotFoundException ex,
+            HttpServletRequest request) {
+
+        ApiErrorResponse body = new ApiErrorResponse(
+                Instant.now(),
+                HttpStatus.NOT_FOUND.value(),
+                "Not Found",
+                ex.getMessage(),
+                request.getRequestURI(),
+                List.of()
+        );
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleGeneralException(
             Exception ex,

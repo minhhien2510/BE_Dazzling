@@ -5,6 +5,7 @@ import io.dazzling.dazzling_backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,7 @@ public class UserService {
                             .email(email)
                             .fullName(name)
                             .role("USER")
+                            .createdAt(Instant.now())
                             .build();
                     return userRepository.save(user);
                 });

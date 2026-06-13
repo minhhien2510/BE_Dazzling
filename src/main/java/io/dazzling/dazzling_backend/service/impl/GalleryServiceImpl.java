@@ -44,7 +44,7 @@ public class GalleryServiceImpl implements GalleryService {
 
         item = repository.save(item);
 
-        return new GalleryUploadResponse(item.getId(), item.getObjectName(), item.getFileName(), item.getFileSize());
+            return new GalleryUploadResponse(item.getId(), item.getObjectName(), item.getFileName(), item.getFileSize());
     }
 
     @Override

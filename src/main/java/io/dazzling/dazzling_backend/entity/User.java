@@ -3,6 +3,9 @@ package io.dazzling.dazzling_backend.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.Instant;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -30,4 +33,8 @@ public class User {
     private String avatarUrl;
 
     private String role;
+
+    @CreatedDate
+    @Column(nullable = true, updatable = false, columnDefinition = "datetime(6)")
+    private Instant createdAt;
 }
